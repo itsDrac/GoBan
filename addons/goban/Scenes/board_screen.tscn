@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://cq881oncack0t"]
+
+[ext_resource type="Script" path="res://addons/goban/Scripts/board_screen.gd" id="1_dcpuq"]
+[ext_resource type="PackedScene" uid="uid://bhjfhnywmnahq" path="res://addons/goban/Scenes/edit_chapter.tscn" id="2_l1aa3"]
+
+[node name="BoardScreen" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_dcpuq")
+
+[node name="BoardName" type="Label" parent="."]
+layout_mode = 2
+text = "New"
+horizontal_alignment = 1
+
+[node name="AddBtn" type="Button" parent="."]
+layout_mode = 2
+theme_type_variation = &"white_btn"
+text = "Add New Card"
+
+[node name="MC" type="MarginContainer" parent="."]
+layout_mode = 2
+
+[node name="CardList" type="HBoxContainer" parent="MC"]
+layout_mode = 2
+
+[node name="EditChapter" parent="MC" instance=ExtResource("2_l1aa3")]
+layout_mode = 2

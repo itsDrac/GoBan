@@ -1,0 +1,46 @@
+[gd_scene load_steps=2 format=3 uid="uid://bhjfhnywmnahq"]
+
+[ext_resource type="Script" path="res://addons/goban/Scripts/edit_chapter.gd" id="1_k28oq"]
+
+[node name="EditChapter" type="PanelContainer"]
+visible = false
+custom_minimum_size = Vector2(0, 500)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_k28oq")
+
+[node name="VBC" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="CardName" type="Label" parent="VBC"]
+layout_mode = 2
+text = "Card Name"
+horizontal_alignment = 1
+
+[node name="HBC" type="HBoxContainer" parent="VBC"]
+layout_mode = 2
+
+[node name="VSeparator" type="VSeparator" parent="VBC/HBC"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SaveButton" type="Button" parent="VBC/HBC"]
+layout_mode = 2
+text = "Save Edit"
+
+[node name="CloseButton" type="Button" parent="VBC/HBC"]
+layout_mode = 2
+text = "Close"
+
+[node name="ChapterName" type="LineEdit" parent="VBC"]
+layout_mode = 2
+
+[node name="ChapterDes" type="TextEdit" parent="VBC"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[connection signal="pressed" from="VBC/HBC/SaveButton" to="." method="_on_save_button_pressed"]
+[connection signal="pressed" from="VBC/HBC/CloseButton" to="." method="_on_close_button_pressed"]

@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://bsuw4jvasrd22"]
+
+[ext_resource type="Script" path="res://addons/goban/Scripts/side_bar.gd" id="1_qk0ux"]
+
+[node name="SideBar" type="HBoxContainer"]
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 236.0
+grow_vertical = 2
+script = ExtResource("1_qk0ux")
+
+[node name="BoardList" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="AddBoard" type="Button" parent="BoardList"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_type_variation = &"white_btn"
+text = "Add New Section"

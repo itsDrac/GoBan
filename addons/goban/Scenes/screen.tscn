@@ -1,0 +1,54 @@
+[gd_scene load_steps=8 format=3 uid="uid://btgq0jruh14v2"]
+
+[ext_resource type="PackedScene" uid="uid://bsuw4jvasrd22" path="res://addons/goban/Scenes/side_bar.tscn" id="1_fbe6l"]
+[ext_resource type="Theme" uid="uid://j0cwu23o5yq7" path="res://addons/goban/Assests/Resources/GoBan.theme" id="1_hn3el"]
+[ext_resource type="Script" path="res://addons/goban/Scripts/screen.gd" id="2_xfncy"]
+[ext_resource type="Texture2D" uid="uid://bre30sxju0a3s" path="res://addons/goban/Assests/Images/Hidden.svg" id="4_hk7c4"]
+[ext_resource type="Texture2D" uid="uid://cgq46ofumfre1" path="res://addons/goban/Assests/Images/Show.svg" id="5_8mx71"]
+[ext_resource type="Texture2D" uid="uid://c82rwqpb7fwgs" path="res://addons/goban/Assests/Images/Save-outline.png" id="6_uqecl"]
+[ext_resource type="Texture2D" uid="uid://daq07gqqut34c" path="res://addons/goban/Assests/Images/Save-fill.png" id="7_hgf1n"]
+
+[node name="MainScreen" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_hn3el")
+script = ExtResource("2_xfncy")
+
+[node name="Screen" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="SideBar" parent="Screen" instance=ExtResource("1_fbe6l")]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Screen"]
+layout_mode = 2
+
+[node name="ShowBtn" type="TextureButton" parent="Screen/VBoxContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_vertical = 0
+toggle_mode = true
+button_pressed = true
+texture_normal = ExtResource("4_hk7c4")
+texture_pressed = ExtResource("5_8mx71")
+stretch_mode = 0
+
+[node name="SaveBtn" type="TextureButton" parent="Screen/VBoxContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture_normal = ExtResource("6_uqecl")
+texture_hover = ExtResource("7_hgf1n")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="BoardScreenArea" type="MarginContainer" parent="Screen"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[connection signal="toggled" from="Screen/VBoxContainer/ShowBtn" to="." method="_on_show_btn_toggled"]
+[connection signal="pressed" from="Screen/VBoxContainer/SaveBtn" to="." method="_on_save_btn_pressed"]
